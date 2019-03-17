@@ -1,0 +1,40 @@
+package WindChill;
+
+import java.util.Scanner;
+
+public class WindChill {
+    
+    // Written by: Kaodili Okwuaka 
+    // Calculates the wind chill index using windspeed (mph) and 
+    // temperature (fahrenheit)
+    
+    public static void main(String[] args) {
+        
+        Scanner stdin = new Scanner (System.in);
+        float T ;
+        float V, windChill;
+                          
+        System.out.print("Enter temperature (Fahrenheit): ");
+        T = stdin.nextFloat();
+     
+        System.out.print("Enter windspeed (mph): ");
+        V = stdin.nextFloat();
+        
+        System.out.print("\n");
+        
+        if ((V >= 2) && (T >= -58) && (T <= 41)) {
+            
+            windChill = (int) (35.74 + 0.6215*T - (35.75*Math.pow(V,0.16)) + 
+                    (0.4275*T*Math.pow(V,0.16)));
+            
+            System.out.print("The wind chill index is ");
+            System.out.print( windChill);
+        }    
+        else {
+            System.out.print("Windspeed has to be below 2mph and temperature "
+                    + "between -58 and 41 degrees fahrenheit");   
+        }
+        
+       System.out.print("\n");   
+    } 
+}
