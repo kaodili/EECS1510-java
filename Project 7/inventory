@@ -1,0 +1,107 @@
+/** Written by: Kaodili Okwuaka 
+// This program uses different commands entered by the user to carry out 
+// what the user wants.
+
+package project7;
+import java.io.File;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class Inventory {
+    public static Entry[] entryList = new Entry[200];
+    public static Scanner stdin = new Scanner (System.in);
+    public static int count;
+    
+    Inventory() {
+    }
+    public static void main(String[] args) throws Exception {
+
+        Entry testObject = new Entry("soda", "20", "empty");
+
+        System.out.println(testObject.notes);
+
+        String command;
+
+        count = 0;
+        readInventory("Project 6.txt");
+
+        String input = stdin.nextLine();
+        command = input.split("")[0]; 
+        
+        public void add() {
+            entryList[count] = new Entry();
+            entryList[count].name = input.substring(2);
+            entryList[count].quantity = stdin.nextLine();
+            entryList[count].notes = stdin.nextLine();
+            count++;
+        }
+            
+        public void find() {
+        boolean found;
+        String name;
+        name = input.substring(2);
+        int i = 0;
+        found = false;
+        while ((i < count) && (found != true)) {
+            if (entryList[i].name.equals(name)) {
+                found = true;
+                break;
+            }
+            i++;
+        }
+        if (found == true) {
+            System.out.println(entryList[i].name
+                    + "\t" + entryList[i].quantity + "\t"
+                    + entryList[i].notes);
+        } else {
+            System.out.println("** No entry with code " + name);
+        }
+        }
+            
+                case "l":
+                 //This lists all entries stored in the inventory by the user.
+                    listAllEntries();
+                    break;
+            }
+        }
+        WriteInventory("Project 6.txt");
+    }
+    
+    public static void readInventory(String FileName) throws Exception {
+        File file = new File("Project 6.txt");
+        Scanner readFile = new Scanner(file);
+        while (readFile.hasNextLine()) {
+            entryList[count] = new Entry();
+            entryList[count].name = readFile.next();
+            entryList[count].quantity = readFile.next();
+            entryList[count].notes = readFile.nextLine();
+            count++;
+        }
+    }
+
+    public static void WriteInventory(String FileName) throws Exception {
+        PrintStream P = new PrintStream(FileName);
+
+        for (int i = 0; i < count; i++) {
+            P.println(entryList[i].name + "\t"
+                    + entryList[i].quantity + "\t"
+                    + entryList[i].notes);
+        }
+        P.close();
+        System.out.println("Inventory stored");
+    }
+
+public static void listAllEntries() {
+        for (int i = 0; i < count; i++) {
+            System.out.println(entryList[i].name + "\t" 
+                    + entryList[i].quantity + "\t"
+                    + entryList[i].notes);
+          
+    }
+}  
+}
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
