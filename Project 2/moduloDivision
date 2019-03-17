@@ -1,0 +1,31 @@
+package moduloDivision;
+
+import java.util.Scanner;
+
+public class moduloDivision {
+    
+    // Written by: Kaodili Okwuaka 
+    // Reads a 3 digit integer
+    // calculates the sum of the digits in the integer
+    // prints out the result
+    
+    public static void main(String[] args)  {
+        
+        Scanner stdin = new Scanner (System.in);
+        int num, sum = 0; 
+        int place1, place2; 
+        int rem1, rem2;
+        
+        System.out.println("Enter an integer: ");
+        num = stdin.nextInt();
+        
+        place1 = num/100;
+        rem1 = num%100;
+        
+        place2 = rem1/10;
+        rem2 = num%10;
+        
+        sum = place1 + place2 + rem2;
+        System.out.println("The sum of the digtits is: " +sum);
+    }
+}
