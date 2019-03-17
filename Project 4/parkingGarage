@@ -1,0 +1,40 @@
+package ParkingGarage;
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class ParkingGarage {
+    
+    // Written by: Kaodili Okwuaka 
+    // This program calculates and prints the summary of charges in a 
+    // parking garage. 
+    // It reads in the number of hours and prints out the cost of 
+    // each of the 5 cars.
+    
+    public static void main(String[] args) {
+        
+        Scanner stdin = new Scanner (System.in);
+        DecimalFormat f = new DecimalFormat ("###,###.#");
+        DecimalFormat g = new DecimalFormat ("###,###.00");
+        
+        double hours, totalHours, charge, totalCharge;
+        hours = 0;
+        charge = 0;
+        totalHours = 0;
+        totalCharge = 0;
+        
+        for(int i = 1; i <= 5; i++) {
+            System.out.print("Enter the hours parked for car " + i + ": ");
+            hours = stdin.nextDouble();
+            totalHours = totalHours + hours;
+            if (hours <= 2)     charge = 5; 
+            else if (hours <= 8) charge = 5 + (((int)Math.ceil(hours))-2) ;
+            else                charge = 12;
+            totalCharge = totalCharge + charge;     
+        }
+        
+        System.out.println("Total hours: " +f.format(totalHours));
+        System.out.println("Total charge: $" +g.format(totalCharge));
+    }
+            
+}
