@@ -1,0 +1,54 @@
+package Taxes;
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class Taxes {
+    
+    // Written by: Kaodili Okwuaka 
+    // This program reads in a person's net taxable income and calculates 
+    // the amount of tax based on the range of the income.
+    
+    public static void main(String[] args) {
+        
+        Scanner stdin = new Scanner (System.in);
+        DecimalFormat f = new DecimalFormat("###,###.##");
+        int income;
+        double tax;
+        income = 0;
+        tax = 0;
+        
+        System.out.print("Enter your net taxable income: $");
+        income = stdin.nextInt();
+        
+        if (income <= 9275) {
+            tax = 0.10 * income;
+        } else if (income <= 37650) {
+            tax = (0.10 * 9275) + 0.15 * (income - 9275);
+        } else if (income <= 91150) {
+            tax = (0.10 * 9275) + 0.15 * (37650 - 9275) + 0.25 * 
+                    (income - 37650);
+        } else if (income <= 190150) {
+            tax = (0.10 * 9275) + 0.15 * (37650 - 9275) + 0.25 * 
+                    (91150 - 37650) + 0.28 * (income - 91150);
+        } else if (income <=413350) {
+            tax = (0.10 * 9275) + 0.15 * (37650 - 9275) + 0.25 * 
+                    (91150 - 37650) + 0.28 * (190150 - 91150) + 0.33 * 
+                    (income - 190150);
+        } else if (income <= 415050) {
+            tax = (0.10 * 9275) + 0.15 * (37650 - 9275) + 0.25 * 
+                    (91150 - 37650) + 0.28 * (190150 - 91150) + 0.33 * 
+                    (413350 - 190150) + 0.35 * (income - 413350);
+        } else if (income >= 415050) {
+            tax = (0.10 * 9275) + 0.15 * (37650 - 9275) + 0.25 * 
+                    (91150 - 37650) + 0.28 * (190150 - 91150) + 0.33 * 
+                    (413350 - 190150) + 0.35 * (415050 - 413350) + 0.396 * 
+                    (income - 415050);
+        } else {
+            System.out.println("Error");
+        }
+        
+        System.out.println("Your 2014 tax is: $"+f.format(tax));
+                
+    }  
+}
