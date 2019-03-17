@@ -1,0 +1,50 @@
+package CountingChange;
+
+import java.util.Scanner;
+public class CountingChange {
+    
+    // Written by: Kaodili Okwuaka 
+    // This program prompts the user for a number between 0 and 99. It then 
+    // further prompts the user for a number of dimes, nickels and pennies.
+    // if the sum of the coins entered by the user is equal to the initial 
+    // sum enetered, it exists, if not it asks one more time for the correct
+    // number of coins.
+
+    public static int dimes, nickels, pennies, sum, monetaryValue; 
+    public static Scanner stdin = new Scanner (System.in);
+    
+    public static void promptForCoins() {
+                
+        System.out.print("Enter your number of dimes: ");
+        dimes = stdin.nextInt();
+        System.out.print("Enter your number of nickels: ");
+        nickels = stdin.nextInt();
+        System.out.print("Enter your number of pennies: ");
+        pennies = stdin.nextInt();
+        
+        monetaryValue = dimes + nickels + pennies;
+        System.out.println("The sum of your coins = " +monetaryValue);
+    }
+        
+    public static void main(String[] args) {
+        System.out.print("Enter the sum (numbers between 0 and 99): ");
+        sum = stdin.nextInt();
+        
+        if (sum < 0 || sum  > 99) {
+            System.out.println("ERROR");
+            System.exit(0);
+        }
+        if (sum >= 0 || sum <= 99) {
+            promptForCoins();
+                        
+            if (sum == monetaryValue) {
+                System.out.println("Yes");
+            } else {
+               System.out.println("No");
+               promptForCoins();
+            }
+        }    
+    }   
+}    
+    
+
