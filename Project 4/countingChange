@@ -26,7 +26,7 @@ public class CountingChange {
         monetaryValue = dimes + nickels + pennies;
         System.out.println("The sum of your coins = " +monetaryValue);
     }
-    '''java    
+      
     public static void main(String[] args) {
         System.out.print("Enter the sum (numbers between 0 and 99): ");
         sum = stdin.nextInt();
@@ -46,5 +46,4 @@ public class CountingChange {
             }
         }    
     } 
-    '''
 }        
