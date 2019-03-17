@@ -1,0 +1,48 @@
+package Oldest;
+
+import javax.swing.JOptionPane;
+
+public class Oldest {
+    
+    // Written by: Kaodili Okwuaka 
+    // This program reads in a number of names and ages from the user. 
+    // It then goes on to display the name of the oldest.
+           
+    public static String name, oldestName; 
+    public static final String SENTINEL = "quit";
+    public static int age, maxAge;
+    
+    public static void promptForInput() {
+        name = JOptionPane.showInputDialog("Enter a name or quit to "
+                + "terminate the program");
+        
+        //it terminates if name is "quit" and exists the program.
+        if (name.equals("quit")) {
+            return;
+        }
+        
+        age = Integer.parseInt(JOptionPane.showInputDialog("Enter "
+                + "his/her age"));
+    }   
+        
+    public static void main(String[] args)  {
+        
+        maxAge = 0;
+        oldestName = "";
+        name = "";
+        
+        // it terminates if the name is "quit" and finds the oldest age 
+        while (name.equals("quit") != true) {
+            promptForInput();
+                
+            if (age > maxAge) {
+                maxAge = age;
+                oldestName = name;
+            }  
+        }
+        
+        JOptionPane.showMessageDialog(null, "The oldest person "
+                + "is " +oldestName);
+        System.exit(0);
+    }    
+}        
