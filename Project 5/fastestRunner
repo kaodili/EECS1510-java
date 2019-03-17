@@ -1,0 +1,76 @@
+package FastestRunner.java;
+
+public class FastestRunner {
+    // Written by: Kaodili Okwuaka 
+    // This program calculates and prints out the fastest and second fastest
+    // runner in a group of students.
+    
+    public static String[] name =
+        {"Elena",    "Thomas",   "Hamilton",  "Suzie",    
+         "Phil",     "Matt",     "Alex",      "Emma",    
+         "John",     "James",    "Jane",      "Emily",
+         "Daniel",   "Neda",     "Aaron",     "Kate"}; 
+
+    public static int[] time =
+        {341,          273,        278,         329, 
+         445,          402,        388,         275, 
+         243,          334,        412,         393, 
+         299,          343,        317,         265};
+    
+    public static int fastestTime, fastestIndex, 
+            secondFastestIndex,  secondFastestTime ;
+      
+    public static String fastestName = "";
+    
+    public static void main(String[] args) {
+       final int numRunners = 16;
+       fastestTime = 1000;
+       fastestIndex = 0;
+       secondFastestIndex= 0;
+       
+       System.out.println("Name          Time(minutes" );
+           
+       for (int i = 0; i < numRunners; i++) {
+            System.out.printf("%-15s", name[i]);   
+            System.out.printf("%-15s\n", time[i]);
+       }
+               
+       System.out.println( );
+       System.out.println("The fastest runner is " 
+               +name[findFastestRunner()]+ " with "
+               +convertToHoursAndMinutes (fastestTime ));  
+       
+       System.out.println("The second fastest runner is "
+               +name[findSecondFastestRunner()]+ " with "
+               +convertToHoursAndMinutes ( secondFastestTime));      
+    }
+    
+    public static int findFastestRunner () {  
+        for (int i = 0; i <= time.length-1; i++) {
+            if (fastestTime  > time[i]) {
+                fastestTime  = time[i];
+                fastestIndex=i;
+            }    
+        }
+        return fastestIndex;
+    }    
+    
+    public static int findSecondFastestRunner () {  
+        for (int i = 0; i <=time.length-1; i++) {
+            if ((time[i] < time [secondFastestIndex]) 
+                    && (time[i] > time[fastestIndex])) {
+                secondFastestIndex = i;
+                secondFastestTime = time[secondFastestIndex];
+            }
+        }
+        return secondFastestIndex;
+    }
+    
+    public static String convertToHoursAndMinutes (int seconds ) {
+        int hours, minutes;
+        hours = seconds / 60;
+        minutes = seconds % 60;
+        
+        return +hours+ " hours " + minutes + " minutes ";      
+    }   
+}
