@@ -1,0 +1,22 @@
+//Written by Kaodili Okwuaka
+
+package inventoryManagement;
+
+public class Entry {
+    public String name, quantity, notes;
+   
+       
+    public Entry () {
+        name = "";
+        quantity = "0";
+        notes = "no notes";         
+    }
+    
+    public Entry(String name, String quantity, String notes) {
+        name = name.toLowerCase();
+        this.name = name;
+        this.quantity = quantity;
+        this.notes = notes;
+    }
+    
+}
