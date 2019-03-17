@@ -1,0 +1,47 @@
+package BinaryConversion;
+
+import java.util.Scanner;
+
+public class BinaryCoversion {
+    // Written by: Kaodili Okwuaka 
+    // This program reads in a binary of type string from the user, 
+    // converts it to an integer and calculates the decimal equivalent 
+    // of the binary input.
+    
+    public static void main (String[] args) {
+        Scanner stdin = new Scanner (System.in);
+        String binaryString = "";
+       
+        while (!binaryString.equals("-1")) {
+            System.out.print("Enter a binary number: ");
+            binaryString = stdin.nextLine();
+            
+            if (binaryString.equals("-1")) {
+                System.out.println("All set!");
+            }else {
+                System.out.println("Conversion to decimal: " 
+                        +binaryToDecimal(binaryString));
+            }
+        }
+    }
+    
+    public static int binaryToDecimal (String binaryString) {
+        int decimal, binaryNum, power;
+        String bin;
+        decimal = 0;
+        power = 0;
+        
+        for (int i = binaryString.length()-1; i >=0 ; i--) {
+            //extracts one string value at a time
+            bin = binaryString.substring(i,i+1);
+            //converts it to an integer
+            binaryNum = Integer.parseInt(bin);
+            
+            decimal += binaryNum * Math.pow(2, power);
+            power++;
+        }      
+        return decimal; 
+    }     
+}       
+    
+        
