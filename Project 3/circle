@@ -1,0 +1,37 @@
+package Circle;
+
+import javax.swing.JOptionPane;
+
+public class Circle {
+    
+    // Written by: Kaodili Okwuaka 
+    // Reads the users inpt and determines if the coordinates entered lie 
+    // within the circle of radius 10 centered at the origin.
+    
+    public static void main(String[] args)  {
+        
+        int x1, y1, x2, y2, d;
+        x1 = 0;
+        y1 = 0;
+                       
+        // Reads the input and converts the string to an integer.
+        x2 = Integer.parseInt(JOptionPane.showInputDialog("Enter your "
+                + "x coordinate: ")); 
+        y2 = Integer.parseInt(JOptionPane.showInputDialog("Enter your "
+                + " y coordinate: "));
+        // Prints out the users input.
+        JOptionPane.showMessageDialog(null, "You entered (" + x2 + "," + y2 + 
+                ") as a point with two coordinates");
+        
+        d = (int) Math.sqrt((Math.pow(x2-x1, 2)) + Math.pow((y2-y1), 2));
+        
+        if (d <= 10) {
+            JOptionPane.showMessageDialog(null, "Point (" + x2 + "," +y2+ ")"
+                    + " is in the circle" );
+        }else {
+            JOptionPane.showMessageDialog(null, "Point (" + x2 + "," +y2+ ")"
+                    + " is not in the circle." );
+        }
+        System.exit(0);
+    }
+}
