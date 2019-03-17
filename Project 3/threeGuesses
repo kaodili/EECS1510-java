@@ -1,0 +1,41 @@
+package ThreeGuesses;
+
+import java.util.Scanner;
+
+public class ThreeGuesses {
+    
+    // Written by: Kaodili Okwuaka 
+    // This program gives the user only three trials to guess the secret code.
+    // The secret code here is 51.
+    
+    public static void main(String[] args) {
+        
+        Scanner stdin = new Scanner (System.in);
+        int guess, secretCode;
+        secretCode = 51;
+                
+        System.out.println("Welcome to People's Bank.");
+        System.out.print("Please enter your secret code: ");
+        guess = stdin.nextInt();
+        
+        if (guess != secretCode) {
+            System.out.print("Sorry, this is not it. Try again: ");
+            guess = stdin.nextInt();
+            
+            if (guess != secretCode) {
+                System.out.print("Sorry, last chance. Try again: ");
+                guess = stdin.nextInt();
+                
+                if (guess != secretCode) {
+                    System.out.println("Sorry, you are out of chances.");                
+                } else {
+                    System.out.println("Fine, go ahead");
+                }
+            } else {
+                System.out.println("Fine, go ahead");
+            }
+        } else {
+            System.out.println("Fine, go ahead");
+        }
+    }    
+}     
